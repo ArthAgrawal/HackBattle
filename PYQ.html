@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+body{
+    min-height:100vh;
+    background:#0c192c;
+}
+.container{
+    position: relative;
+    width:100vh;
+    height:100vh;
+    overflow:hidden;
+
+}
+.bubbles{
+    position:relative;
+    display:flex;
+
+}
+.bubbles span{
+    position: relative;
+    width:30px;
+    height:30px;
+    background:#4fc3dc;
+    margin: 0 4px;
+    border-radius:20%;
+    box-shadow:0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation:animate 15s linear infinite;
+    animation-duration:calc(125s/var(--i) );
+
+}
+.bubbles span:nth-child(even){
+    box-shadow:0 0 0 10px #ff2d7544,
+    0 0 50px #e05510,
+    0 0 100px #e05510;
+    background:#e05510 ;
+
+}
+@keyframes animate
+{
+    0%{
+        transform:translateY(100vh) scale(0);
+    }
+    100%{
+        transform:translateY(-10vh) scale(1);
+    }
+}
+    </style>
+  
+  </head>
+  <body>
+    <div class="container1">
+      <div class="bubbles">
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:13"></span>
+        <span style="--i:28"></span>
+      </div>
+  
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYQ</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">About
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('display')}}">Display</a>
+                    <a href="{{url_for('update')}}">Update</a>
+                
+                
+                
+                </div>
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Services
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Previous year question papers</a>
+                    <a href="#">Notes</a>
+                
+                
+                
+                </div>
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Role
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Be a mentor</a>
+                    <a href="#">Be a student</a>
+                
+                
+                
+                </div>
+            </div> 
+            
+            <a href="#">Contact</a>
+        </div>
+        <div class="right">
+           
+            <a href="{{url_for('logout')}}">Sign out</a>
+            
+           
+          
+        </div>
+        <style>
+            .right{
+                display:flex;
+                justify-content:flex-end;
+                margin-bottom:30px;
+
+            }
+            
+         
+        </style>
+    </div>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        
+        <label for="subject1">Select Subject:</label>
+        <select name="subject1" id="subject1">
+            <option value="Calculus">Calculus</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="BEEE">BEEE</option>
+        </select>
+        <button type="button" class="upload">Upload</button>
+        <button type="download" class="upload">Download</button>
+       
+        
+    </form>
+   
+
+</body>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(7, 9, 98);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.upload {
+    margin-top:10px;
+   
+    color:rgb(7, 9, 98); /* Text color */
+    background-color: transparent; /* Background color (transparent for outline) */
+    border: 2px solid rgb(7, 9, 98); /* Border color */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Border radius */
+    cursor: pointer; /* Cursor style on hover */
+    text-decoration: none; /* Remove underlines */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effect */
+}
+
+
+/* Primary Outline Button Hover Styles */
+.upload:hover {
+    background-color: rgb(7, 9, 98); /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    
+    background-color: rgb(238, 160, 92);
+    border: 1px solid rgb(238, 160, 92);
+    padding: 20px;
+    max-width: 600px;
+    
+    margin:auto;
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+select, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.navbar {
+            background-color: #2d4c90;
+            overflow: hidden;
+            height: 40px;
+            box-shadow: 0px 8px 16px 0px rgb(238, 160, 92);
+            margin-bottom:40px;
+        }
+        .navbar {
+            background-color: #2d4c90;
+            overflow: hidden;
+            height:40px;
+            box-shadow:0px 8px 16px 0px rgb(238, 160, 92);
+            
+        
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: rgb(241, 141, 65);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+           
+       
+        }
+
+        .navbar a:hover,.dropdown:hover .dropbtn  {
+            background-color: #5d94d2;
+            color: black;
+        }
+        .dropdown {
+        float: left;
+        overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: rgb(241, 141, 65);
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+        }
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #5d5353;
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+
+        .content {
+                    padding: 20px;
+                }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+
+</style>
+</html>
